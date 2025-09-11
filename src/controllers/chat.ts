@@ -3,7 +3,9 @@ import { ChatSession, IChatSession } from "../models/chat";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { v4 as uuidv4 } from "uuid";
 import { logger } from "../utils/logger";
-import { inngest } from "@/inngest";
+// import { inngest } from "@/inngest";
+import { inngest } from "../inngest/client";
+
 import { User } from "../models/User";
 import { InngestSessionResponse, InngestEvent } from "../types/inngest";
 import { Types } from "mongoose";

@@ -9,8 +9,8 @@ import {
   generateTopic,      // NEW
   updateSessionTopic, // NEW
   deleteChatSession,
-} from "@/controllers/chat";
-import { auth } from "@/middleware/auth";
+} from "../controllers/chat";
+import { auth } from "../middleware/auth";
 
 const router = express.Router();
 
