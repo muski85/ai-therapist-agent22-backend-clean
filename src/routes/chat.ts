@@ -6,8 +6,8 @@ import {
   getChatHistory,
   createChatSession,
   getAllChatSessions,
-  generateTopic,      // NEW
-  updateSessionTopic, // NEW
+  generateTopic,      
+  updateSessionTopic, 
   deleteChatSession,
 } from "../controllers/chat";
 import { auth } from "../middleware/auth";

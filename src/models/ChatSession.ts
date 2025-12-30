@@ -49,7 +49,7 @@ const chatSessionSchema = new Schema<IChatSession>({
   messages: [chatMessageSchema],
 });
 
-// FIX: Check if model already exists before creating it
+// Check if model already exists before creating it
 export const ChatSession = models.ChatSession || model<IChatSession>(
   "ChatSession",
   chatSessionSchema

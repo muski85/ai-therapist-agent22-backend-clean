@@ -11,8 +11,7 @@ import { InngestSessionResponse, InngestEvent } from "../types/inngest";
 import { Types } from "mongoose";
 
 // Initialize Gemini API
-// const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-// At the top of the file  
+
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
   throw new Error('GEMINI_API_KEY environment variable is not defined');
@@ -61,7 +60,7 @@ export const createChatSession = async (req: Request, res: Response) => {
   }
 };
 
-// Send a message in the chat session
+
 // Send a message in the chat session
 export const sendMessage = async (req: Request, res: Response) => {
   try {
@@ -139,7 +138,7 @@ export const sendMessage = async (req: Request, res: Response) => {
     }
 
     // Process the message directly using Gemini
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
     let analysis;
     try {
@@ -169,7 +168,7 @@ Required JSON structure:
       analysis = JSON.parse(cleanAnalysisText);
       logger.info("Message analysis successful:", analysis);
     } catch (analysisError) {
-      // FIXED: Fallback analysis if JSON parsing fails
+      // Fallback analysis if JSON parsing fails
       logger.warn("Analysis failed, using fallback:", analysisError);
       analysis = {
         emotionalState: "seeking_support",
@@ -438,7 +437,7 @@ export const generateTopic = async (req: Request, res: Response) => {
     });
 
     // Use Gemini to generate a topic
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
     const topicPrompt = `Based on the following therapy conversation, generate a short, empathetic topic title (maximum 4 words) that captures the main theme or concern being discussed.
 

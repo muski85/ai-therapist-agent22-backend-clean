@@ -9,17 +9,17 @@ export interface IChatMessage {
     technique?: string;
     goal?: string;
     progress?: any;
-    analysis?: any; // From your controller
+    analysis?: any; // From controller
   };
 }
 
 export interface IChatSession extends Document {
   sessionId: string;
-  userId: Types.ObjectId; // From your controller
+  userId: Types.ObjectId; // From controller
   messages: IChatMessage[];
   topic?: string; // NEW: AI-generated topic field
-  startTime: Date; // From your controller
-  status: string; // From your controller
+  startTime: Date; // From controller
+  status: string; // From controller
   createdAt: Date;
   updatedAt: Date;
 }
@@ -41,7 +41,7 @@ const chatMessageSchema = new Schema<IChatMessage>({
   metadata: {
   technique: String,
   goal: String,
-  progress: Schema.Types.Mixed, // Remove the array brackets
+  progress: Schema.Types.Mixed, 
   analysis: Schema.Types.Mixed,
 },
 });
@@ -79,7 +79,7 @@ const chatSessionSchema = new Schema<IChatSession>(
   }
 );
 
-// FIX: Check if model already exists before creating it
+// Check if model already exists before creating it
 export const ChatSession = mongoose.models.ChatSession || mongoose.model<IChatSession>(
   "ChatSession",
   chatSessionSchema

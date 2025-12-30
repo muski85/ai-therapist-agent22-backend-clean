@@ -2,7 +2,7 @@ import express from "express";
 import  dotenv from "dotenv";
 dotenv.config();
 
-// const express = require('express');
+
 import {Request, Response} from "express";
 import { serve } from "inngest/express";
 import { inngest } from "./inngest";
